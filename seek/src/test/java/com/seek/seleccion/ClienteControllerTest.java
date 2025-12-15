@@ -11,11 +11,9 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -91,7 +89,7 @@ class ClienteControllerTest {
 
         when(service.listarConEsperanzaVida()).thenReturn(Arrays.asList(dto));
 
-        ResponseEntity<List<ClienteConEventoDTO>> response = controller.listarConEvento();
+        ResponseEntity<List<ClienteConEventoDTO>> response = controller.listarConEsperanza();
 
         assertEquals(200, response.getStatusCode().value());
         assertEquals(1, response.getBody().size());
