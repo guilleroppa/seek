@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,11 +34,12 @@ public class Cliente {
     private String apellido;
 
     @Schema(description = "Edad del cliente", example = "6")
-    @Min(value = 0, message = "La edad no puede ser negativa")
+    @Min(value = 18, message = "El cliente debe ser mayor de edad")
     private Integer edad;
 
     @Schema(description = "Fecha de nacimiento", example = "2019-05-12")
     @NotNull(message = "La fecha de nacimiento es obligatoria")
+    @Past(message = "La fecha de nacimiento debe ser en el pasado")
     private LocalDate fechaNacimiento;
 
 }
